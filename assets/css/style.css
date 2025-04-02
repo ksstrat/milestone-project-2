@@ -10,7 +10,7 @@ body {
 
 .heading {
     height: 75%;
-    margin-bottom: 80px;
+    margin-bottom: 50px;
 }
 
 #playerGesture {
@@ -20,6 +20,29 @@ body {
 
 #compGesture {
     width: 45%;
+}
+
+.scoreboard {
+    margin-top: 1%;
+}
+
+#playerScore {
+    margin-right: 10%;
+}
+
+#compScre {
+    margin-left: 10%;
+}
+
+.startTimer {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.playBtn {
+    height: 50px;
+    margin: 30px;
 }
 
 .choices {

@@ -9,14 +9,26 @@ body {
 }
 
 .heading {
-    font-size: 3rem;
+    height: 75%;
+    margin-bottom: 80px;
 }
 
 #playerGesture {
-    width: 500px;
+    width: 45%;
     transform: scaleX(-1);
 }
 
 #compGesture {
-    width: 500px;
+    width: 45%;
+}
+
+.choices {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.choiceImg {
+    width: 100%;
+    height: 100%;
 }

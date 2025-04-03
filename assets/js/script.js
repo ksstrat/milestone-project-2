@@ -33,11 +33,13 @@ document.addEventListener("DOMContentLoaded", function() {
     function runGame() {
         if (gameActive) return;
         gameActive = true;
+        enableChoiceBtns(true);
     }
 
     // End the round
     function endGame() {
         gameActive = false;
+        enableChoiceBtns(false);
     }
 
     // Returns a random gesture
@@ -63,6 +65,13 @@ document.addEventListener("DOMContentLoaded", function() {
     // Reset gesture back to rock
     function resetGesture() {
 
+    }
+
+    // Enables or disables all gesture buttons
+    function enableChoiceBtns(enabled) {
+        for (let choicesBtn of choicesBtns) {
+            choicesBtn.disabled = !enabled;
+        }
     }
 
 

@@ -70,8 +70,8 @@ document.addEventListener("DOMContentLoaded", function() {
         compGesture.src = `assets/images/${compMove}.webp`;
 
         const winner = determineWinner(playerChoice, compChoice);
-        updateScore()
-        endGame()
+        updateScore(winner);
+        endGame();
     }
 
     // Compare gestures and pick the winner
@@ -104,6 +104,4 @@ document.addEventListener("DOMContentLoaded", function() {
             choicesBtn.disabled = !enabled;
         }
     }
-
-
 })

@@ -14,6 +14,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Game State
     let gameActive = false;
+    let playerPoints = 0;
+    let compPoints = 0;
 
     // Add event listener to all gesture buttons
     for (let choicesBtn of choicesBtns) {
@@ -60,7 +62,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Increment the score of the player or the Computer, depending on who wins
     function updateScore() {
+        if (winner === "player") {
+            playerPoints++;
+        } elseif (winner === "comp") {
+            compPoints++;
+        }
 
+        playerScore.textContent = "Player: " + playerPoints;
+        compScore.textContent = "Comp: " + compPoints;
     }
 
     // Reset gesture back to rock

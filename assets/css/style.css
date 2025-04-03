@@ -58,8 +58,10 @@ body {
 
 .choicesBtn {
     border-radius: 50%;
-    max-width: 150px;
-    max-height: 150px;
+    max-width: 125px;
+    max-height: 125px;
+    border: none;
+    margin: 0 5px 0 5px;
 }
 
 .choiceImg {

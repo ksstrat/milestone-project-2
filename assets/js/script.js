@@ -4,11 +4,11 @@ document.addEventListener("DOMContentLoaded", function() {
 /**
  * Declare constants for DOM elements and possible choices
  */
-    const playerGesture = document.getElementById("playerGesture");
-    const compGesture = document.getElementById("compGesture");
-    const playerScore = document.getElementById("playerScore");
-    const compScore = document.getElementById("compScore");
-    const choicesBtns = document.getElementsByClassName("choicesBtn")
+    const playerGesture = document.getElementById("player-gesture");
+    const compGesture = document.getElementById("comp-gesture");
+    const playerScore = document.getElementById("player-score");
+    const compScore = document.getElementById("comp-score");
+    const choicesBtns = document.getElementsByClassName("choices-btn")
     const choices = ["rock", "paper", "scissors", "lizard", "spock"];
     
 })

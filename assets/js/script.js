@@ -17,6 +17,15 @@ document.addEventListener("DOMContentLoaded", function() {
     let playerPoints = 0;
     let compPoints = 0;
 
+    // Index-based rule system
+    const rules = {
+        0: [2, 3], // Rock beats Scissors and Lizard
+        1: [0, 4], // Paper beats Rock and Spock
+        2: [1, 3], // Scissors beats Paper and Lizard
+        3: [1, 4], // Lizard beats Paper and Spock
+        4: [0, 2], // Spock beats Rock and Scissors
+    }
+
     // Add event listener to all gesture buttons
     for (let choicesBtn of choicesBtns) {
         choicesBtn.addEventListener("click", function() {

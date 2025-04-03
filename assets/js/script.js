@@ -60,17 +60,29 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // Called up when the player selects a gesture
-    function playerChoice() {
+    function playGame (playerChoice) {
+        const compChoice = randomChoice();
 
+        const playerMove = choices[playerChoice];
+        const compMove = choices[compChoice];
+
+        playerGesture.src = `assets/images/${playerMove}.webp`;
+        compGesture.src = `assets/images/${compMove}.webp`;
+
+        const winner = determineWinner(playerChoice, compChoice);
+        updateScore()
+        endGame()
     }
 
     // Compare gestures and pick the winner
-    function determineWinner() {
-
+    function determineWinner(playerChoice, compChoice) {
+        if (playerChoice === compChoice) return "draw";
+        if (rules[playerChoice].includes(compChoice)) return "player";
+        return "comp";
     }
 
     // Increment the score of the player or the Computer, depending on who wins
-    function updateScore() {
+    function updateScore(winner) {
         if (winner === "player") {
             playerPoints++;
         } elseif (winner === "comp") {

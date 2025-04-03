@@ -18,18 +18,26 @@ document.addEventListener("DOMContentLoaded", function() {
     // Add event listener to all gesture buttons
     for (let choicesBtn of choicesBtns) {
         choicesBtn.addEventListener("click", function() {
+            if (!gameActive) return;
             let playerChoice = this.getAttribute("data-choice");
             playGame(playerChoice);
         });
     } 
 
+    // Event listener for PLAY NOW button
+    playBtn.addEventListener("click", function () {
+        runGame();
+    })
+
     // Starts the round
     function runGame() {
+        if (gameActive) return;
+        gameActive = true;
     }
 
     // End the round
     function endGame() {
-
+        gameActive = false;
     }
 
     // Returns a random gesture
@@ -56,4 +64,6 @@ document.addEventListener("DOMContentLoaded", function() {
     function resetGesture() {
 
     }
+
+
 })

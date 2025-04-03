@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Event listener for PLAY NOW button
     playBtn.addEventListener("click", function () {
         runGame();
-    })
+    });
 
     // Starts the round
     function runGame() {
@@ -95,8 +95,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Reset gesture back to rock
     function resetGesture() {
-        playerGesture.src = "assets/images/rock.webp"
-        compGesture.src = "assets/images/rock.webp"
+        playerGesture.src = "assets/images/rock.webp";
+        compGesture.src = "assets/images/rock.webp";
     }
 
     // Enables or disables all gesture buttons
@@ -105,4 +105,4 @@ document.addEventListener("DOMContentLoaded", function() {
             choicesBtn.disabled = !enabled;
         }
     }
-})
+});

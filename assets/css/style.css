@@ -41,8 +41,13 @@ body {
 }
 
 .playBtn {
-    height: 50px;
+    height: 100px;
+    width: 120px;
     margin: 30px;
+    border-radius: 50%;
+    background-color: #6EEB83;
+    border: none;
+    font-weight: bold;
 }
 
 .choices {

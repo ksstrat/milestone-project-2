@@ -44,7 +44,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Returns a random gesture
     function randomChoice() {
-
+        const randomIndex = Math.floor(Math.random() * choices.length);
+        return choices[randomIndex];
     }
 
     // Called up when the player selects a gesture

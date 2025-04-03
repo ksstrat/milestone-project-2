@@ -28,10 +28,14 @@ body {
 
 #playerScore {
     margin-right: 10%;
+    font-weight: bold;
+    font-size: 1.5rem;
 }
 
 #compScore {
     margin-left: 10%;
+    font-weight: bold;
+    font-size: 1.5rem;
 }
 
 .startTimer {

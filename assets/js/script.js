@@ -1,9 +1,9 @@
 //Wait for the DOM to finish loading before running the game
 document.addEventListener("DOMContentLoaded", function() {
 
-/**
- * Declare constants for DOM elements and possible choices
- */
+    /**
+    * Declare constants for DOM elements and possible choices
+    */
     const playerGesture = document.getElementById("player-gesture");
     const compGesture = document.getElementById("comp-gesture");
     const playerScore = document.getElementById("player-score");
@@ -11,4 +11,38 @@ document.addEventListener("DOMContentLoaded", function() {
     const choicesBtns = document.getElementsByClassName("choices-btn")
     const choices = ["rock", "paper", "scissors", "lizard", "spock"];
     const playBtn = document.getElementById("play-btn");
+
+    // Starts the round
+    function runGame() {
+    }
+
+    // End the round
+    function endGame() {
+
+    }
+
+    // Returns a random gesture
+    function randomChoice() {
+
+    }
+
+    // Called up when the player selects a gesture
+    function PlayerChoice() {
+
+    }
+
+    // Compare gestures and pick the winner
+    function determineWinner() {
+
+    }
+
+    // Increment the score of the player or the Computer, depending on who wins
+    function updateScore() {
+
+    }
+
+    // Reset gesture back to rock
+    function resetGesture() {
+
+    }
 })

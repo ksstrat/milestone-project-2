@@ -44,6 +44,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function runGame() {
         if (gameActive) return;
         gameActive = true;
+        resetGesture();
         enableChoiceBtns(true);
     }
 
@@ -94,7 +95,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Reset gesture back to rock
     function resetGesture() {
-
+        playerGesture.src = "assets/images/rock.webp"
+        compGesture.src = "assets/images/rock.webp"
     }
 
     // Enables or disables all gesture buttons

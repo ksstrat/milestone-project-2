@@ -10,5 +10,5 @@ document.addEventListener("DOMContentLoaded", function() {
     const compScore = document.getElementById("comp-score");
     const choicesBtns = document.getElementsByClassName("choices-btn")
     const choices = ["rock", "paper", "scissors", "lizard", "spock"];
-    
+    const playBtn = document.getElementById("play-btn");
 })

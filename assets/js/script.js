@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function updateScore(winner) {
         if (winner === "player") {
             playerPoints++;
-        } elseif (winner === "comp") {
+        } else if (winner === "comp") {
             compPoints++;
         }
 

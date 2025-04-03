@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function() {
         2: [1, 3], // Scissors beats Paper and Lizard
         3: [1, 4], // Lizard beats Paper and Spock
         4: [0, 2], // Spock beats Rock and Scissors
-    }
+    };
 
     // Add event listener to all gesture buttons
     for (let choicesBtn of choicesBtns) {

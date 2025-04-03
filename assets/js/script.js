@@ -103,6 +103,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function enableChoiceBtns(enabled) {
         for (let choicesBtn of choicesBtns) {
             choicesBtn.disabled = !enabled;
+            choicesBtn.classList.toggle("disable-btn", !enabled);
         }
     }
 });

@@ -72,6 +72,12 @@ body {
     margin: 0 5px 0 5px;
 }
 
+.disable-btn {
+    opacity: 0.5;
+    filter: grayscale(100%);
+    cursor: not-allowed;
+}
+
 .choices-btn:hover {
     background-color: #6EEB83;
 }

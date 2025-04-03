@@ -12,6 +12,17 @@ document.addEventListener("DOMContentLoaded", function() {
     const choices = ["rock", "paper", "scissors", "lizard", "spock"];
     const playBtn = document.getElementById("play-btn");
 
+    // Game State
+    let gameActive = false;
+
+    // Add event listener to all gesture buttons
+    for (let choicesBtn of choicesBtns) {
+        choicesBtn.addEventListener("click", function() {
+            let playerChoice = this.getAttribute("data-choice");
+            playGame(playerChoice);
+        });
+    } 
+
     // Starts the round
     function runGame() {
     }
@@ -27,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // Called up when the player selects a gesture
-    function PlayerChoice() {
+    function playerChoice() {
 
     }
 

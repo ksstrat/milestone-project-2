@@ -44,7 +44,7 @@ body {
     justify-content: center;
 }
 
-.play-btn {
+#play-btn {
     height: 100px;
     width: 120px;
     margin: 30px;
@@ -54,7 +54,7 @@ body {
     font-weight: bold;
 }
 
-.play-btn:hover {
+#play-btn:hover {
     background-color: #FF5714;
 }
 

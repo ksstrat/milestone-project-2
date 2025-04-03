@@ -54,6 +54,10 @@ body {
     font-weight: bold;
 }
 
+.play-btn:hover {
+    background-color: #FF5714;
+}
+
 .choices {
     display: flex;
     flex-wrap: nowrap;
@@ -66,6 +70,10 @@ body {
     max-height: 125px;
     border: none;
     margin: 0 5px 0 5px;
+}
+
+.choices-btn:hover {
+    background-color: #6EEB83;
 }
 
 .choice-img {

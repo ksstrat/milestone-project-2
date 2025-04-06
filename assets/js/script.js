@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const choicesBtns = document.getElementsByClassName("choices-btn")
     const choices = ["rock", "paper", "scissors", "lizard", "spock"];
     const playBtn = document.getElementById("play-btn");
+    const winningScore = 3;
 
     // Game State
     let gameActive = false;
@@ -193,6 +194,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 icon: 'info',
                 title: 'Draw!',
                 confirmButtonText: 'OK',
+           }).then(() => {
+                checkMatchEnd();
            });
             return;
         }
@@ -208,6 +211,8 @@ document.addEventListener("DOMContentLoaded", function() {
             title: heading,
             text: detail,
             confirmButtonText: 'Continue'
+        }).then(() => {
+            checkMatchEnd();
         });
     }
 
@@ -224,6 +229,45 @@ document.addEventListener("DOMContentLoaded", function() {
 
         playerScore.textContent = "Player: " + playerPoints;
         compScore.textContent = "Comp: " + compPoints;
+    }
+
+    /**
+     * Checks if either player has won the match.
+     */
+    function checkMatchEnd() {
+        if (playerPoints >= winningScore || compPoints >= winningScore) {
+            const bestOfFive = playerPoints > compPoints ? "player" : "comp";
+            showMatchWinner(bestOfFive);
+        }
+    }
+
+    /**
+     * Displays match winner and resets the match after confirmation
+     */
+    function showMatchWinner(bestOfFive) {
+        const winTitle = bestOfFive === "player" ? "You won the match!" : "The computer wins the match!";
+        const winText = `Final score: Player ${playerPoints} - ${compPoints} Computer`;
+
+        Swal.fire({
+            icon: bestOfFive === "player" ? "success" : "error",
+            title: winTitle,
+            text: winText,
+            confirmButtonText: "Play new match"
+        }).then(() => {
+            resetMatch();
+        });
+    }
+
+    /**
+     * Resets match scores an UI to initial state
+     */
+    function resetMatch() {
+        playerPoints = 0;
+        compPoints = 0;
+        playerScore.textContent = "Player: 0";
+        compScore.textContent = "Comp: 0";
+        resetGesture();
+        playBtn.textContent = "PLAY NOW";
     }
 
     /**

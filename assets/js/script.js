@@ -49,10 +49,10 @@ document.addEventListener("DOMContentLoaded", function() {
      * Adds click events listeners to all gesture buttons.
      * When clicked, triggers a round if game is active.
      */
-    for (let choicesBtn of choicesBtns) {
+    for (const choicesBtn of choicesBtns) {
         choicesBtn.addEventListener("click", function() {
             if (!gameActive) return;
-            let playerChoice = parseInt(this.getAttribute("data-choice"));
+            const playerChoice = parseInt(this.getAttribute("data-choice"));
             playGame(playerChoice);
         });
     } 

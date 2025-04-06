@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function() {
         0: { 2: "crushes", 3: "crushes"},
         1: { 0: "covers", 4: "disproves"},
         2: { 1: "cuts", 3: "decapitates"},
-        3: { 4: "eats", 1: "poisons"},
+        3: { 1: "poisons", 4: "eats"},
         4: { 0: "vaporizes", 2: "smashes" }
     };
 

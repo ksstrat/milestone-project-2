@@ -63,11 +63,7 @@ document.addEventListener("DOMContentLoaded", function() {
             if (countdown === 0) {
                 clearInterval(timerInterval);
                 if(!playerHasChosen) {
-                    endGame();
-                    playBtn.textContent = "YOU FAILED";
-                    setTimeout(() => {
-                        playBtn.textContent = "PLAY AGAIN";
-                    }, 1500);
+                    autoLoseRound();
                 }
             }
         }, 1000);
@@ -80,7 +76,9 @@ document.addEventListener("DOMContentLoaded", function() {
         enableChoiceBtns(false);
         clearInterval(timerInterval);
         playBtn.classList.remove("countdown-active");
-        playBtn.textContent = "PLAY AGAIN";
+        setTimeout(() => {
+            playBtn.textContent = "PLAY AGAIN";
+        }, 1500);
     }
 
     // Returns a random gesture
@@ -100,6 +98,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
         const winner = determineWinner(playerChoice, compChoice);
         updateScore(winner);
+        endGame();
+    }
+
+    // If player does not choose in time
+    function autoLoseRound() {
+        const compChoice = randomChoice();
+        const compMove = choices[compChoice];
+
+        compGesture.src = `assets/images/${compMove}.webp`;
+
+        updateScore("comp");
+        playBtn.textContent = "YOU FAILED";
         endGame();
     }
 

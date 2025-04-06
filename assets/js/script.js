@@ -118,7 +118,14 @@ document.addEventListener("DOMContentLoaded", function() {
         playerGesture.src = "assets/images/failed.webp";
 
         updateScore("comp");
-       alert("YOU FAILED!\nYou didn't choose in time.");
+
+        Swal.fire({
+            icon: 'error',
+            title: 'You failed!',
+            text: "You didn't choose in time.",
+            confirmButtonText: 'Try again'
+        });
+
         endGame();
     }
 
@@ -146,7 +153,11 @@ document.addEventListener("DOMContentLoaded", function() {
     // Show the result via alert
     function displayAlert({result, winnerIndex, loserIndex}) {
         if (result === "draw") {
-            alert("Draw!");
+           Swal.fire({
+                icon: 'info',
+                title: 'Draw!',
+                confirmButtonText: 'OK',
+           });
             return;
         }
 
@@ -156,7 +167,12 @@ document.addEventListener("DOMContentLoaded", function() {
         const detail = `${subject} ${verb} ${object}`;
         const heading = result === "player" ? "You win!" : "You lose!";
 
-        alert(`${heading}\n${detail}`);
+        Swal.fire({
+            icon: result === "player" ? "success" : "error",
+            title: heading,
+            text: detail,
+            confirmButtonText: 'Continue'
+        });
     }
 
     // Increment the score of the player or the Computer, depending on who wins

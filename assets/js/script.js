@@ -22,7 +22,10 @@ document.addEventListener("DOMContentLoaded", function() {
     let timerInterval = null;
     let playerHasChosen = false;
 
-    // Index-based rule system
+    /**
+     * Object defining the winning relationships between gestures using indexes
+     * Each key beats the listed values
+     */
     const rules = {
         0: [2, 3], // Rock beats Scissors and Lizard
         1: [0, 4], // Paper beats Rock and Spock
@@ -31,6 +34,9 @@ document.addEventListener("DOMContentLoaded", function() {
         4: [0, 2], // Spock beats Rock and Scissors
     };
 
+    /**
+     * Object mapping gesture win interactions to desciptive verbs
+     */
     const messages = {
         0: { 2: "crushes", 3: "crushes"},
         1: { 0: "covers", 4: "disproves"},
@@ -39,7 +45,10 @@ document.addEventListener("DOMContentLoaded", function() {
         4: { 0: "vaporizes", 2: "smashes" }
     };
 
-    // Add event listener to all gesture buttons
+    /**
+     * Adds click events listeners to all gesture buttons.
+     * When clicked, triggers a round if game is active.
+     */
     for (let choicesBtn of choicesBtns) {
         choicesBtn.addEventListener("click", function() {
             if (!gameActive) return;
@@ -48,12 +57,17 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     } 
 
-    // Event listener for PLAY NOW button
+    /**
+     * Click event to start a new round when "PLAY NOW" button is pressed.
+     */
     playBtn.addEventListener("click", function () {
         runGame();
     });
 
-    // Starts the round with timer
+    /**
+     * Starts a new round with countdown. Enables gesture selection and
+     * handles auto-loss if player does not choose in time.
+     */
     function runGame() {
         if (gameActive) return;
         gameActive = true;
@@ -78,7 +92,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
     }
 
-    // End the round
+    /**
+     * Ends the current round, disables inputs, and resets the play button after delay.
+     */
     function endGame() {
         gameActive = false;
         enableChoiceBtns(false);
@@ -89,12 +105,19 @@ document.addEventListener("DOMContentLoaded", function() {
         }, 1500);
     }
 
-    // Returns a random gesture
+    /**
+     * Returns a random gesture index from the list of choices
+     * @returns {number} Index of randomly selected gesture
+     */
     function randomChoice() {
         return Math.floor(Math.random() * choices.length);
     }
 
-    // Called up when the player selects a gesture
+    /**
+     * Executes a full game round: computer randomly picks a gesture,
+     * outcome is determined, score updated, and result displayed.
+     * @param {number} playerChoice - Index of the player's gesture choice
+     */
     function playGame (playerChoice) {
         const compChoice = randomChoice();
         const playerMove = choices[playerChoice];
@@ -109,7 +132,10 @@ document.addEventListener("DOMContentLoaded", function() {
         endGame();
     }
 
-    // If player does not choose in time
+    /**
+     * Handles scenario where player does not select a gesture before timer ends.
+     * Computer gets the point by default, and a failure image is shown.
+     */
     function autoLoseRound() {
         const compChoice = randomChoice();
         const compMove = choices[compChoice];
@@ -129,7 +155,12 @@ document.addEventListener("DOMContentLoaded", function() {
         endGame();
     }
 
-    // Compare gestures and pick the winner
+    /**
+     * Determines the outcome of a round based on gesture indexes.
+     * @param {number} playerChoice - Player's gesture index
+     * @param {number} compChoice - Computer's gesture index
+     * @returns {Object} Result object with winner and involved indexes
+     */
     function determineWinner(playerChoice, compChoice) {
         if (playerChoice === compChoice) { 
             return { result : "draw" };
@@ -150,7 +181,11 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    // Show the result via alert
+    /**
+     * Displays a SweetAlert popup indicating the result of the round.
+     * Includes visual feedback and descriptive text.
+     * @param {Object} resultObj - Object with result, winnerIndex and loserIndex 
+     */
     function displayAlert({result, winnerIndex, loserIndex}) {
         if (result === "draw") {
            Swal.fire({
@@ -175,7 +210,10 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // Increment the score of the player or the Computer, depending on who wins
+    /**
+     * Updates the game score and displays it in the UI.
+     * @param {string} winner - Either "player", "comp", or "draw"
+     */
     function updateScore(winner) {
         if (winner === "player") {
             playerPoints++;
@@ -187,13 +225,18 @@ document.addEventListener("DOMContentLoaded", function() {
         compScore.textContent = "Comp: " + compPoints;
     }
 
-    // Reset gesture back to rock
+    /**
+     * Resets both gesture images to the deault "rock" image.
+     */
     function resetGesture() {
         playerGesture.src = "assets/images/rock.webp";
         compGesture.src = "assets/images/rock.webp";
     }
 
-    // Enables or disables all gesture buttons
+    /**
+     * Enables or diables all gesture selection buttons.
+     * @param {boolean} enabled - Whether buttons should be clickable
+     */
     function enableChoiceBtns(enabled) {
         for (let choicesBtn of choicesBtns) {
             choicesBtn.disabled = !enabled;
@@ -201,6 +244,11 @@ document.addEventListener("DOMContentLoaded", function() {
         }   
     }
 
+    /**
+     * Capitalizes the first letter of a given string.
+     * @param {string} string - The string to capitalize
+     * @returns {string} The capitalized string
+     */
     function capitalize(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
     }

@@ -54,6 +54,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         countdown = 5;
         playBtn.textContent = countdown;
+        playBtn.classList.add("countdown-active");
 
         timerInterval = setInterval(() => {
             countdown--;
@@ -78,6 +79,7 @@ document.addEventListener("DOMContentLoaded", function() {
         gameActive = false;
         enableChoiceBtns(false);
         clearInterval(timerInterval);
+        playBtn.classList.remove("countdown-active");
         playBtn.textContent = "PLAY AGAIN";
     }
 

@@ -49,13 +49,13 @@ body {
     width: 120px;
     margin: 30px;
     border-radius: 50%;
-    background-color: #6EEB83;
+    background-color: #FFFFFA;
     border: none;
     font-weight: bold;
 }
 
 #play-btn:hover {
-    background-color: #FF5714;
+    background-color: #6EEB83;
 }
 
 .choices {
@@ -85,4 +85,8 @@ body {
 .choice-img {
     width: 100%;
     height: 100%;
+}
+
+.countdown-active {
+    background-color: #FF5714 !important;
 }

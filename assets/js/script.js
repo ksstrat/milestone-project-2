@@ -164,7 +164,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const subject = choices[winnerIndex];
         const object = choices[loserIndex];
         const verb = messages[winnerIndex][loserIndex];
-        const detail = `${subject} ${verb} ${object}`;
+        const detail = `${capitalize(subject)} ${verb} ${capitalize(object)}`;
         const heading = result === "player" ? "You win!" : "You lose!";
 
         Swal.fire({
@@ -198,6 +198,10 @@ document.addEventListener("DOMContentLoaded", function() {
         for (let choicesBtn of choicesBtns) {
             choicesBtn.disabled = !enabled;
             choicesBtn.classList.toggle("disable-btn", !enabled);
-        }
+        }   
+    }
+
+    function capitalize(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
     }
 });

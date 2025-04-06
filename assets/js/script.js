@@ -119,6 +119,7 @@ document.addEventListener("DOMContentLoaded", function() {
      * @param {number} playerChoice - Index of the player's gesture choice
      */
     function playGame (playerChoice) {
+        playerHasChosen = true;
         const compChoice = randomChoice();
         const playerMove = choices[playerChoice];
         const compMove = choices[compChoice];

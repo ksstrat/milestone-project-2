@@ -31,6 +31,14 @@ document.addEventListener("DOMContentLoaded", function() {
         4: [0, 2], // Spock beats Rock and Scissors
     };
 
+    const messages = {
+        0: { 2: "crushes", 3: "crushes"},
+        1: { 0: "covers", 4: "disproves"},
+        2: { 1: "cuts", 4: "decapitates"},
+        3: { 4: "eats", 1: "poisons"},
+        4: { 0: "vaporizes", 2: "smashes" }
+    };
+
     // Add event listener to all gesture buttons
     for (let choicesBtn of choicesBtns) {
         choicesBtn.addEventListener("click", function() {
@@ -96,7 +104,8 @@ document.addEventListener("DOMContentLoaded", function() {
         compGesture.src = `assets/images/${compMove}.webp`;
 
         const winner = determineWinner(playerChoice, compChoice);
-        updateScore(winner);
+        updateScore(winner.result);
+        displayAlert(winner);
         endGame();
     }
 
@@ -109,15 +118,45 @@ document.addEventListener("DOMContentLoaded", function() {
         playerGesture.src = "assets/images/failed.webp";
 
         updateScore("comp");
-        playBtn.textContent = "YOU FAILED";
+       alert("YOU FAILED!\nYou didn't choose in time.");
         endGame();
     }
 
     // Compare gestures and pick the winner
     function determineWinner(playerChoice, compChoice) {
-        if (playerChoice === compChoice) return "draw";
-        if (rules[playerChoice].includes(compChoice)) return "player";
-        return "comp";
+        if (playerChoice === compChoice) { 
+            return { result : "draw" };
+        }
+
+        if (rules[playerChoice].includes(compChoice)) {
+            return { 
+                result:"player", 
+                winnerIndex:playerChoice, 
+                loserIndex: compChoice 
+            };
+        } else {
+            return { 
+                result: "comp", 
+                winnerIndex: compChoice, 
+                loserIndex: playerChoice 
+            };
+        }
+    }
+
+    // Show the result via alert
+    function displayAlert({result, winnerIndex, loserIndex}) {
+        if (result === "draw") {
+            alert("Draw!");
+            return;
+        }
+
+        const subject = choices[winnerIndex];
+        const object = choices[loserIndex];
+        const verb = messages[winnerIndex][loserIndex];
+        const detail = `${subject} ${verb} ${object}`;
+        const heading = result === "player" ? "You win!" : "You lose!";
+
+        alert(`${heading}\n${detail}`);
     }
 
     // Increment the score of the player or the Computer, depending on who wins

@@ -17,6 +17,11 @@ document.addEventListener("DOMContentLoaded", function() {
     let playerPoints = 0;
     let compPoints = 0;
 
+    // Timer
+    let countdown = 5;
+    let timerInterval = null;
+    let playerHasChosen = false;
+
     // Index-based rule system
     const rules = {
         0: [2, 3], // Rock beats Scissors and Lizard
@@ -40,18 +45,40 @@ document.addEventListener("DOMContentLoaded", function() {
         runGame();
     });
 
-    // Starts the round
+    // Starts the round with timer
     function runGame() {
         if (gameActive) return;
         gameActive = true;
         resetGesture();
         enableChoiceBtns(true);
+
+        countdown = 5;
+        playBtn.textContent = countdown;
+
+        timerInterval = setInterval(() => {
+            countdown--;
+            playBtn.textContent = countdown;
+
+            if (countdown === 0) {
+                clearInterval(timerInterval);
+                if(!playerHasChosen) {
+                    endGame();
+                    playBtn.textContent = "YOU FAILED";
+                    setTimeout(() => {
+                        playBtn.textContent = "PLAY AGAIN";
+                    }, 1500);
+                }
+            }
+        }, 1000);
+
     }
 
     // End the round
     function endGame() {
         gameActive = false;
         enableChoiceBtns(false);
+        clearInterval(timerInterval);
+        playBtn.textContent = "PLAY AGAIN";
     }
 
     // Returns a random gesture

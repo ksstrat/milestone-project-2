@@ -107,6 +107,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const compMove = choices[compChoice];
 
         compGesture.src = `assets/images/${compMove}.webp`;
+        playerGesture.src = "assets/images/failed.webp";
 
         updateScore("comp");
         playBtn.textContent = "YOU FAILED";

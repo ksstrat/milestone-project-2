@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function() {
     for (let choicesBtn of choicesBtns) {
         choicesBtn.addEventListener("click", function() {
             if (!gameActive) return;
-            let playerChoice = this.getAttribute("data-choice");
+            let playerChoice = parseInt(this.getAttribute("data-choice"));
             playGame(playerChoice);
         });
     } 
@@ -89,7 +89,6 @@ document.addEventListener("DOMContentLoaded", function() {
     // Called up when the player selects a gesture
     function playGame (playerChoice) {
         const compChoice = randomChoice();
-
         const playerMove = choices[playerChoice];
         const compMove = choices[compChoice];
 

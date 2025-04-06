@@ -98,6 +98,7 @@ document.addEventListener("DOMContentLoaded", function() {
      */
     function endGame() {
         gameActive = false;
+        playerHasChosen = false;
         enableChoiceBtns(false);
         clearInterval(timerInterval);
         playBtn.classList.remove("countdown-active");

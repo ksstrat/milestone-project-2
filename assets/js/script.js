@@ -132,7 +132,6 @@ document.addEventListener("DOMContentLoaded", function() {
         const winner = determineWinner(playerChoice, compChoice);
         updateScore(winner.result);
         displayAlert(winner);
-        endGame();
     }
 
     /**
@@ -214,6 +213,7 @@ document.addEventListener("DOMContentLoaded", function() {
             confirmButtonText: 'Continue'
         }).then(() => {
             checkMatchEnd();
+            endGame();
         });
     }
 

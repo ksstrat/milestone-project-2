@@ -66,45 +66,60 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     /**
-     * Starts a new round with countdown. Enables gesture selection and
-     * handles auto-loss if player does not choose in time.
+     * Initializes a new round:
+     * - Reserts player state
+     * - Enables gesture selection
+     * - Starts countdown timer
      */
     function runGame() {
         if (gameActive) return;
         gameActive = true;
         resetGesture();
-        enableChoiceBtns(true);
-
-        countdown = 5;
-        playBtn.textContent = countdown;
-        playBtn.classList.add("countdown-active");
-
-        timerInterval = setInterval(() => {
-            countdown--;
-            playBtn.textContent = countdown;
-
-            if (countdown === 0) {
-                clearInterval(timerInterval);
-                if(!playerHasChosen) {
-                    autoLoseRound();
-                }
-            }
-        }, 1000);
-
+        playerHasChosen = false;
+        playBtn.disabled = true;
+        startTimer(5);
     }
 
     /**
-     * Ends the current round, disables inputs, and resets the play button after delay.
+     * Starts the countdown timer for gesture selection.
+     * If the timer runs out without a player selection,
+     * the round is autmatically lost by the player.
+     * @param {number} time - Starting value for countdown in seconds 
+     */
+    function startTimer(time) {
+        clearInterval(timerInterval);
+        countdown = time;
+        playBtn.textContent = countdown;
+        playBtn.classList.add("countdown-active");
+        enableChoiceBtns(true);
+        gameActive = true;
+        playerHasChosen = false;
+
+        timerInterval = setInterval(() => {
+           countdown--;
+           playBtn.textContent = countdown;
+
+           if (countdown === 0) {
+            clearInterval(timerInterval);
+            if (!playerHasChosen) {
+                autoLoseRound();
+            }
+           }
+        },1000 );
+    }
+
+    /**
+     * Ends the current round:
+     * - Stops the timer
+     * - Disables choices buttons
+     * - Updates the play button text
      */
     function endGame() {
         gameActive = false;
-        playerHasChosen = false;
-        enableChoiceBtns(false);
         clearInterval(timerInterval);
+        enableChoiceBtns(false);
         playBtn.classList.remove("countdown-active");
-        setTimeout(() => {
-            playBtn.textContent = "PLAY AGAIN";
-        }, 1500);
+        playBtn.textContent = "PLAY AGAIN";
     }
 
     /**
@@ -122,6 +137,8 @@ document.addEventListener("DOMContentLoaded", function() {
      */
     function playGame (playerChoice) {
         playerHasChosen = true;
+        clearInterval(timerInterval);
+
         const compChoice = randomChoice();
         const playerMove = choices[playerChoice];
         const compMove = choices[compChoice];
@@ -139,6 +156,9 @@ document.addEventListener("DOMContentLoaded", function() {
      * Computer gets the point by default, and a failure image is shown.
      */
     function autoLoseRound() {
+        clearInterval(timerInterval);
+        gameActive = false;
+
         const compChoice = randomChoice();
         const compMove = choices[compChoice];
 
@@ -152,9 +172,13 @@ document.addEventListener("DOMContentLoaded", function() {
             title: 'You failed!',
             text: "You didn't choose in time.",
             confirmButtonText: 'Try again'
+        }).then(() => {
+            checkMatchEnd();
+            endGame();
+            if (playerPoints < winningScore && compPoints < winningScore) {
+                startTimer(5);
+            }
         });
-
-        endGame();
     }
 
     /**
@@ -189,6 +213,8 @@ document.addEventListener("DOMContentLoaded", function() {
      * @param {Object} resultObj - Object with result, winnerIndex and loserIndex 
      */
     function displayAlert({result, winnerIndex, loserIndex}) {
+        clearInterval(timerInterval);
+
         if (result === "draw") {
            Swal.fire({
                 icon: 'info',
@@ -197,6 +223,9 @@ document.addEventListener("DOMContentLoaded", function() {
            }).then(() => {
                 checkMatchEnd();
                 endGame();
+                if (playerPoints < winningScore && compPoints < winningScore) {
+                    startTimer(5);
+                }
            });
             return;
         }
@@ -215,6 +244,9 @@ document.addEventListener("DOMContentLoaded", function() {
         }).then(() => {
             checkMatchEnd();
             endGame();
+            if (playerPoints < winningScore && compPoints < winningScore) {
+                startTimer(5);
+            }
         });
     }
 
@@ -269,6 +301,7 @@ document.addEventListener("DOMContentLoaded", function() {
         playerScore.textContent = "Player: 0";
         compScore.textContent = "Comp: 0";
         resetGesture();
+        playBtn.disabled = false;
         playBtn.textContent = "PLAY NOW";
     }
 

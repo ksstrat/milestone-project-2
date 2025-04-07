@@ -1,4 +1,4 @@
-//Wait for the DOM to finish loading before running the game
+// Wait for the DOM to finish loading before running the game
 document.addEventListener("DOMContentLoaded", function() {
 
     /**
@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function() {
     };
 
     /**
-     * Object mapping gesture win interactions to desciptive verbs
+     * Object mapping gesture win interactions to descriptive verbs
      */
     const messages = {
         0: { 2: "crushes", 3: "crushes"},
@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     /**
      * Initializes a new round:
-     * - Reserts player state
+     * - Resets player state
      * - Enables gesture selection
      * - Starts countdown timer
      */
@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function() {
     /**
      * Starts the countdown timer for gesture selection.
      * If the timer runs out without a player selection,
-     * the round is autmatically lost by the player.
+     * the round is automatically lost by the player.
      * @param {number} time - Starting value for countdown in seconds 
      */
     function startTimer(time) {
@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", function() {
     /**
      * Ends the current round:
      * - Stops the timer
-     * - Disables choices buttons
+     * - Disables choice buttons
      * - Updates the play button text
      */
     function endGame() {
@@ -306,7 +306,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     /**
-     * Resets both gesture images to the deault "rock" image.
+     * Resets both gesture images to the default "rock" image.
      */
     function resetGesture() {
         playerGesture.src = "assets/images/rock.webp";

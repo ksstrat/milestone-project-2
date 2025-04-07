@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function() {
     } 
 
     /**
-     * Click event to start a new round when "PLAY NOW" button is pressed.
+     * Click event to start a new round when "Start best of five" button is pressed.
      */
     playBtn.addEventListener("click", function () {
         runGame();
@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function() {
         clearInterval(timerInterval);
         enableChoiceBtns(false);
         playBtn.classList.remove("countdown-active");
-        playBtn.textContent = "PLAY AGAIN";
+        playBtn.innerHTML = "Start<br>best of five";
     }
 
     /**
@@ -302,7 +302,7 @@ document.addEventListener("DOMContentLoaded", function() {
         compScore.textContent = "Comp: 0";
         resetGesture();
         playBtn.disabled = false;
-        playBtn.textContent = "PLAY NOW";
+        playBtn.innerHTML = "Start<br>best of five";
     }
 
     /**

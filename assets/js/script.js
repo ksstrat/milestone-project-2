@@ -196,6 +196,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 confirmButtonText: 'OK',
            }).then(() => {
                 checkMatchEnd();
+                endGame();
            });
             return;
         }

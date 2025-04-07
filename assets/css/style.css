@@ -17,8 +17,9 @@ body {
 /* Gestures display*/
 #player-gesture,
 #comp-gesture {
-    width: 44vw;
+    width: 40vw;
     max-width: 700px;
+    margin-top: 2vw;
 }
 
 #player-gesture {
@@ -39,7 +40,7 @@ body {
 #comp-score {
     font-size: clamp(1rem, 1vw, 1.5rem);
     font-weight: bold;
-    padding: 0 7vw 0 7vw;
+    padding: 0 12vw 0 12vw;
 }
 
 /* Control area */
@@ -56,7 +57,7 @@ body {
     height: 16vw;
     max-width: 120px;
     max-height: 120px;
-    margin: 4vw 0 3vw 0;
+    margin: 1vw;
     border-radius: 50%;
     background-color: #FFFFFA;
     border: 2px solid;

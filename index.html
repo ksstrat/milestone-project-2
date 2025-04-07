@@ -1,39 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- meta data -->
+    <!-- Basic metadata -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock, Paper, Scissors, Lizard, Spock</title>
     <meta name="description" content="Play Rock, Paper, Scissors, Lizard, Spock online here!">
 
-    <!-- costum CSS link -->
+    <!-- Custom CSS link -->
     <link rel="stylesheet" href="assets/css/style.css">   
     
 </head>
 <body>
+    <!-- Header with gesture icons using Font Awesome-->
     <header>
     <h1 class="heading">
         Rock<i class="fa-solid fa-hand-fist"></i> - Paper<i class="fa-solid fa-hand"></i> - Scissors<i class="fa-solid fa-hand-scissors"></i> - Lizard<i class="fa-solid fa-hand-lizard"></i> - Spock<i class="fa-solid fa-hand-spock"></i>
     </h1>
     </header>
     
+    <!-- Main game section -->
     <section class="game-area">
+        <!-- Visual display of player and computer gestures-->
         <div class="game-graphics">
             <span>
-                <img id="player-gesture" src="assets/images/rock.webp" alt="">
-                <img id="comp-gesture" src="assets/images/rock.webp" alt="">
+                <img id="player-gesture" src="assets/images/rock.webp" alt="Player hand gesture">
+                <img id="comp-gesture" src="assets/images/rock.webp" alt="Computer hand gesture">
             </span>
         </div>
+
+        <!-- Scoreboard for player and computer -->
         <div class="scoreboard">
             <span id="player-score">Player: 0</span>
             <span id="comp-score">Comp: 0</span>
         </div>
+
+        <!-- Game controls area-->
         <div class="controls-area">
+            <!-- Button to start "best of five" mode -->
             <div class="start-timer">
                 <button id="play-btn">Start<br>best of five</button>
             </div>
+
+            <!-- Gesture section buttons for the player -->
             <div class="choices">
+                <!-- Each button uses a data-choice attribute for logic in JS -->
                 <button class="choices-btn disable-btn" aria-label="Rock" data-choice="0">
                     <img class="choice-img" src="assets/images/game_btn_rock.webp" alt="Rock button">
                 </button>
@@ -52,21 +63,20 @@
             </div>
         </div>
     </section>
+
+    <!-- Game rules displayed in the footer -->
     <footer>
         <h2>Rules</h2>
         <p>Rock crushes Scissors and Lizard | Paper covers Rock and disproves Spock | Scissors cut Paper and decapitate Lizard | Lizard poisons Spock and eats Paper | Spock vaporizes Rock and smashes Scissors</p>
     </footer>
 
-    <!-- SweetAlert 2-->
+    <!-- SweetAlert 2 pop-up messages -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <!-- costum JS link -->
+    <!-- Custom JavaScript file -->
     <script src="assets/js/script.js"></script>
 
-    <!-- font awesome -->
+    <!-- Font Awesome Kit -->
     <script src="https://kit.fontawesome.com/6407888561.js" crossorigin="anonymous"></script>
-
-    
-
 </body>
 </html>

@@ -177,7 +177,9 @@ document.addEventListener("DOMContentLoaded", function() {
             icon: 'error',
             title: 'You failed!',
             text: "You didn't choose in time.",
-            confirmButtonText: 'Try again'
+            confirmButtonText: 'Try again',
+            position: "bottom",
+            width: "75%",
         }).then(() => {
             checkMatchEnd();
             endGame();
@@ -226,6 +228,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 icon: 'info',
                 title: 'Draw!',
                 confirmButtonText: 'OK',
+                position: "bottom",
+                width: "75%",
            }).then(() => {
                 checkMatchEnd();
                 endGame();
@@ -246,7 +250,9 @@ document.addEventListener("DOMContentLoaded", function() {
             icon: result === "player" ? "success" : "error",
             title: heading,
             text: detail,
-            confirmButtonText: 'Continue'
+            confirmButtonText: 'Continue',
+            position: "bottom",
+            width: "75%",
         }).then(() => {
             checkMatchEnd();
             endGame();
@@ -301,7 +307,9 @@ document.addEventListener("DOMContentLoaded", function() {
             icon: bestOfFive === "player" ? "success" : "error",
             title: winTitle,
             text: winText,
-            confirmButtonText: "Play new match"
+            confirmButtonText: "Play new match",
+            position: "bottom",
+            width: "75%",
         }).then(() => {
             playerWins.textContent = "Wins: " + playerMatches;
             compWins.text = "Wins: " + compMatches;

@@ -12,11 +12,17 @@ document.addEventListener("DOMContentLoaded", function() {
     const choices = ["rock", "paper", "scissors", "lizard", "spock"];
     const playBtn = document.getElementById("play-btn");
     const winningScore = 3;
+    const playerWins = document.getElementById("player-wins");
+    const compWins = document.getElementById("comp-wins");
+    const drawScore = document.getElementById("draw-score");
 
     // Game State
     let gameActive = false;
     let playerPoints = 0;
     let compPoints = 0;
+    let playerMatches = 0;
+    let compMatches = 0;
+    let draws = 0;
 
     // Timer
     let countdown = 5;
@@ -259,10 +265,13 @@ document.addEventListener("DOMContentLoaded", function() {
             playerPoints++;
         } else if (winner === "comp") {
             compPoints++;
+        } else if (winner === "draw") {
+            draws++
         }
 
-        playerScore.textContent = "Player: " + playerPoints;
-        compScore.textContent = "Comp: " + compPoints;
+        playerScore.textContent = "Round: " + playerPoints;
+        compScore.textContent = "Round: " + compPoints;
+        drawScore.textContent = draws;
     }
 
     /**
@@ -282,12 +291,20 @@ document.addEventListener("DOMContentLoaded", function() {
         const winTitle = bestOfFive === "player" ? "You won the match!" : "The computer wins the match!";
         const winText = `Final score: Player ${playerPoints} - ${compPoints} Computer`;
 
+        if (bestOfFive === "player") {
+            playerMatches++;
+        } else {
+            compMatches++;
+        }
+
         Swal.fire({
             icon: bestOfFive === "player" ? "success" : "error",
             title: winTitle,
             text: winText,
             confirmButtonText: "Play new match"
         }).then(() => {
+            playerWins.textContent = "Wins: " + playerMatches;
+            compWins.text = "Wins: " + compMatches;
             resetMatch();
         });
     }
@@ -298,8 +315,10 @@ document.addEventListener("DOMContentLoaded", function() {
     function resetMatch() {
         playerPoints = 0;
         compPoints = 0;
-        playerScore.textContent = "Player: 0";
-        compScore.textContent = "Comp: 0";
+        draws = 0;
+        playerScore.textContent = "Round: 0";
+        compScore.textContent = "Round: 0";
+        drawScore.textContent = "0";
         resetGesture();
         playBtn.disabled = false;
         playBtn.innerHTML = '<img id="play-img" src="assets/images/play_btn.webp" alt="Play button">';

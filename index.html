@@ -29,12 +29,6 @@
             </span>
         </div>
 
-        <!-- Scoreboard for player and computer -->
-        <div class="scoreboard">
-            <span id="player-score">Player: 0</span>
-            <span id="comp-score">Comp: 0</span>
-        </div>
-
         <!-- Game controls area-->
         <div class="controls-area">
             <h2 id="heading-two">Play Bo5</h2>
@@ -65,6 +59,30 @@
                 </button>
             </div>
         </div>
+
+        <!-- Scoreboard for player and computer -->
+        <div class="scoreboard">
+            <!-- Player Score -->
+             <div class="score-column player-scoreboard">
+                <h3>Player</h3>
+                <p id="player-score">Round: 0</p>
+                <p id="player-wins">Wins: 0</p>
+             </div>
+
+             <!-- Draw Score -->
+              <div class="score-column draw-scoreboard">
+                <h3>Draws</h3>
+                <p id="draw-score">0</p>
+              </div>
+
+              <!-- Comp Score -->
+              <div class="score-column comp-scoreboard">
+                <h3>Computer</h3>
+                <p id="comp-score">Round: 0</p>
+                <p id="comp-wins">Wins: 0</p>
+             </div>
+        </div>
+
     </section>
 
     <!-- Game rules displayed in the footer -->

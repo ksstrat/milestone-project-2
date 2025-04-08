@@ -33,14 +33,31 @@ body {
 
 /* Scoreboard styling */
 .scoreboard {
-    margin: 2vw 0 0 0;
+    max-width: 800px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    text-align: center;
 }
 
-#player-score,
-#comp-score {
-    font-size: clamp(1rem, 1vw, 1.5rem);
-    font-weight: bold;
-    padding: 0 12vw 0 12vw;
+.score-column {
+    flex: 1;
+}
+
+.score-column h3 {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+}
+
+.score-column p {
+    font-size: clamp(0.5, 1.5vw, 0.75rem);
+}
+
+#player-scoreboard,
+#comp-scoreboard {
+    display: felx;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 /* Control area */

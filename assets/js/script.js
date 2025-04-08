@@ -213,6 +213,7 @@ document.addEventListener("DOMContentLoaded", function() {
             confirmButtonText: 'Try again',
             position: "bottom",
             width: "75%",
+            allowOutsideClick: false,
         }).then(() => {
             checkMatchEnd();
             endGame();
@@ -263,6 +264,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 confirmButtonText: 'OK',
                 position: "bottom",
                 width: "75%",
+                allowOutsideClick: false,
            }).then(() => {
                 checkMatchEnd();
                 endGame();
@@ -286,6 +288,7 @@ document.addEventListener("DOMContentLoaded", function() {
             confirmButtonText: 'Continue',
             position: "bottom",
             width: "75%",
+            allowOutsideClick: false,
         }).then(() => {
             checkMatchEnd();
             endGame();
@@ -343,6 +346,7 @@ document.addEventListener("DOMContentLoaded", function() {
             confirmButtonText: "Play new match",
             position: "bottom",
             width: "75%",
+            allowOutsideClick: false,
         }).then(() => {
             playerWins.textContent = "Wins: " + playerMatches;
             compWins.textContent = "Wins: " + compMatches;

@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const playerWins = document.getElementById("player-wins");
     const compWins = document.getElementById("comp-wins");
     const drawScore = document.getElementById("draw-score");
-    const scrollArrow = document.getElementById("scroll-arrow")
+    const scrollArrow = document.getElementById("scroll-arrow");
 
     const choicesBtns = document.getElementsByClassName("choices-btn");
 

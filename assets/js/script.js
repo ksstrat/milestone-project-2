@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const playerWins = document.getElementById("player-wins");
     const compWins = document.getElementById("comp-wins");
     const drawScore = document.getElementById("draw-score");
+    const scrollArrow = document.getElementById("scroll-arrow")
 
     const choicesBtns = document.getElementsByClassName("choices-btn");
 
@@ -72,6 +73,35 @@ document.addEventListener("DOMContentLoaded", function() {
      */
     playBtn.addEventListener("click", function () {
         runGame();
+    });
+
+    /**
+     * On load: Check if the page is scrollable
+     * If the page is not scrollable, the scroll arrow is hidden immediately.
+     */
+    window.addEventListener("load", function () {
+        const scrollable = document.documentElement.scrollHeight > window.innerHeight;
+        if (!scrollable) {
+            scrollArrow.classList.add("hidden");
+        }
+    });
+
+    /**
+     * On window scroll:
+     * - Continuously checks if the page is scrollable.
+     * - Detects whether the user has scrolled to the bottom of the page.
+     * - Hides the scroll arrow if at the bottom.
+     * - Shows the scroll arrow if there is more content below.
+     */
+    window.addEventListener("scroll", function () {
+        const scrollable = document.documentElement.scrollHeight > window.innerHeight;
+        const scrolledToBottom = (window.innerHeight + window.scrollY) >= document.body.offsetHeight;
+    
+        if (scrollable && !scrolledToBottom) {
+            scrollArrow.classList.remove("hidden");
+        } else {
+            scrollArrow.classList.add("hidden");
+        }
     });
 
     /**

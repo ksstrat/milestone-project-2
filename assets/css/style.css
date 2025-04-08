@@ -148,5 +148,10 @@ body {
 
 .scroll-link {
     color: #FFFFFA;
-    opacity: 0.6;
+    opacity: 1;
+}
+
+.scroll-link.hidden {
+    opacity: 0;
+    pointer-events: none;
 }

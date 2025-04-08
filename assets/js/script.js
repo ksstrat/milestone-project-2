@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const compGesture = document.getElementById("comp-gesture");
     const playerScore = document.getElementById("player-score");
     const compScore = document.getElementById("comp-score");
-    const choicesBtns = document.getElementsByClassName("choices-btn")
+    const choicesBtns = document.getElementsByClassName("choices-btn");
     const choices = ["rock", "paper", "scissors", "lizard", "spock"];
     const playBtn = document.getElementById("play-btn");
     const winningScore = 3;
@@ -271,8 +271,8 @@ document.addEventListener("DOMContentLoaded", function() {
             playerPoints++;
         } else if (winner === "comp") {
             compPoints++;
-        } else if (winner === "draw") {
-            draws++
+        } else {
+            draws++;
         }
 
         playerScore.textContent = "Round: " + playerPoints;

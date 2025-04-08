@@ -139,6 +139,10 @@ body {
 }
 
 footer {
+    width: 100%;
+    max-width: 75%;
+    margin: 0 auto;
+    text-align: center;
     font-size: clamp(0.75rem, 1vw, 1rem);
 }
 

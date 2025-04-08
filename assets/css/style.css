@@ -138,3 +138,15 @@ body {
     color: black;
     font-weight: bold;
 }
+
+.scroll-indicator {
+    position: fixed;
+    bottom: 0.5rem;
+    font-size: clamp(2rem, 1.5vw, 3rem);
+    left: 90%;
+}
+
+.scroll-link {
+    color: #FFFFFA;
+    opacity: 0.6;
+}

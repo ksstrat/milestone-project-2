@@ -11,7 +11,7 @@ body {
 
 /* Page heading */
 .heading {
-    font-size: clamp(1.50rem, 2.5vw, 3rem);
+    font-size: clamp(1.25rem, 1.5vw, 2rem);
 }
 
 /* Gestures display*/
@@ -31,6 +31,12 @@ body {
     margin-left: 2vw;
 }
 
+/* h2 Heading style */
+#heading-two {
+    margin: 0.5vw;
+    font-size: clamp(1rem, 1.5vw, 1.5rem);
+}
+
 /* Scoreboard styling */
 .scoreboard {
     max-width: 800px;
@@ -46,11 +52,11 @@ body {
 }
 
 .score-column h3 {
-    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-size: clamp(0.75rem, 1.5vw, 1.5rem);
 }
 
 .score-column p {
-    font-size: clamp(0.5, 1.5vw, 0.75rem);
+    font-size: clamp(0.75rem, 1.5vw, 1.25rem);
 }
 
 #player-scoreboard,
@@ -61,12 +67,6 @@ body {
 }
 
 /* Control area */
-
-/* h2 Heading style */
-#heading-two {
-    margin: 0.5vw;
-    font-size: clamp(1rem, 1vw, 1.5rem);
-}
 
 /* Start button and timer */
 .start-timer {
@@ -84,12 +84,19 @@ body {
     border-radius: 50%;
     background-color: #FFFFFA;
     border: 2px solid;
-    font-size: clamp(0.75rem, 1.5vw, 1.5rem);
+    font-size: clamp(0.75rem, 1.5vw, 1.25rem);
 }
 
 #play-img {
     width: 100%;
     height: auto;
+}
+
+/* When countdown is active change color */
+.countdown-active {
+    background-color: #FF5714 !important;
+    color: black;
+    font-weight: bold;
 }
 
 /* Hover effect for start button*/
@@ -132,11 +139,8 @@ body {
     background-color: #6EEB83;
 }
 
-/* When countdown is active change color */
-.countdown-active {
-    background-color: #FF5714 !important;
-    color: black;
-    font-weight: bold;
+footer {
+    font-size: clamp(0.75rem, 1vw, 1rem);
 }
 
 .scroll-indicator {

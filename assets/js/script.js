@@ -312,7 +312,7 @@ document.addEventListener("DOMContentLoaded", function() {
             width: "75%",
         }).then(() => {
             playerWins.textContent = "Wins: " + playerMatches;
-            compWins.text = "Wins: " + compMatches;
+            compWins.textContent = "Wins: " + compMatches;
             resetMatch();
         });
     }

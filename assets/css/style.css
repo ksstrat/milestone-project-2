@@ -17,7 +17,7 @@ body {
 /* Gestures display*/
 #player-gesture,
 #comp-gesture {
-    width: 43vw;
+    width: 42vw;
     max-width: 700px;
     margin-top: 2vw;
 }
@@ -107,8 +107,7 @@ body {
 /* Gesture buttons */
 .choices {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0vw;
+    flex-wrap: nowrap;
     justify-content: center;
 }
 

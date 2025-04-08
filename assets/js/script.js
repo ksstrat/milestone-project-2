@@ -8,14 +8,17 @@ document.addEventListener("DOMContentLoaded", function() {
     const compGesture = document.getElementById("comp-gesture");
     const playerScore = document.getElementById("player-score");
     const compScore = document.getElementById("comp-score");
-    const choicesBtns = document.getElementsByClassName("choices-btn");
-    const choices = ["rock", "paper", "scissors", "lizard", "spock"];
     const playBtn = document.getElementById("play-btn");
-    const winningScore = 3;
     const playerWins = document.getElementById("player-wins");
     const compWins = document.getElementById("comp-wins");
     const drawScore = document.getElementById("draw-score");
 
+    const choicesBtns = document.getElementsByClassName("choices-btn");
+
+    const winningScore = 3;
+
+    const choices = ["rock", "paper", "scissors", "lizard", "spock"];
+    
     // Game State
     let gameActive = false;
     let playerPoints = 0;

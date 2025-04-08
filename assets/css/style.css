@@ -45,6 +45,12 @@ body {
 
 /* Control area */
 
+/* h2 Heading style */
+#heading-two {
+    margin: 0.5vw;
+    font-size: clamp(1rem, 1vw, 1.5rem);
+}
+
 /* Start button and timer */
 .start-timer {
     display: flex;
@@ -54,7 +60,7 @@ body {
 
 #play-btn {
     width: 18vw;
-    height: 16vw;
+    height: 18vw;
     max-width: 120px;
     max-height: 120px;
     margin: 1vw;
@@ -62,6 +68,11 @@ body {
     background-color: #FFFFFA;
     border: 2px solid;
     font-size: clamp(0.75rem, 1.5vw, 1.5rem);
+}
+
+#play-img {
+    width: 100%;
+    height: 100%;
 }
 
 /* Hover effect for start button*/

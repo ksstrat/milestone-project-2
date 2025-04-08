@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function() {
         clearInterval(timerInterval);
         enableChoiceBtns(false);
         playBtn.classList.remove("countdown-active");
-        playBtn.innerHTML = "Start<br>best of five";
+        playBtn.innerHTML = '<img id="play-img" src="assets/images/play_btn.webp" alt="Play button">';
     }
 
     /**
@@ -302,7 +302,7 @@ document.addEventListener("DOMContentLoaded", function() {
         compScore.textContent = "Comp: 0";
         resetGesture();
         playBtn.disabled = false;
-        playBtn.innerHTML = "Start<br>best of five";
+        playBtn.innerHTML = '<img id="play-img" src="assets/images/play_btn.webp" alt="Play button">';
     }
 
     /**

@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function() {
     };
 
     /**
-     * Adds click events listeners to all gesture buttons.
+     * Adds click event listeners to all gesture buttons.
      * When clicked, triggers a round if game is active.
      */
     for (const choicesBtn of choicesBtns) {
@@ -344,7 +344,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     /**
-     * Enables or diables all gesture selection buttons.
+     * Enables or disables all gesture selection buttons.
      * @param {boolean} enabled - Whether buttons should be clickable
      */
     function enableChoiceBtns(enabled) {

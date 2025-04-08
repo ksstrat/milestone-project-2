@@ -80,7 +80,7 @@ body {
     height: 18vw;
     max-width: 120px;
     max-height: 120px;
-    margin: 2vw;
+    margin: 3vw;
     border-radius: 50%;
     background-color: #FFFFFA;
     border: 2px solid;
@@ -100,7 +100,8 @@ body {
 /* Gesture buttons */
 .choices {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
+    gap: 0vw;
     justify-content: center;
 }
 

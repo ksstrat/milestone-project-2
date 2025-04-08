@@ -17,7 +17,7 @@ body {
 /* Gestures display*/
 #player-gesture,
 #comp-gesture {
-    width: 40vw;
+    width: 43vw;
     max-width: 700px;
     margin-top: 2vw;
 }

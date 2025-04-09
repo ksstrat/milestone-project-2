@@ -1,11 +1,12 @@
 ## Table of Contents
-* [**Testing Druing Development**](#testing-during-development)
+* [**Testing During Development**](#testing-during-development)
     * [*Manual Testing*](#manual-testing)
     * [*Bugs and Fixes*](#bugs-and-fixes)
 * [**Post Development Testing**](#post-development-testing)
   * [**Validators**](#validators)
-      * [*HTML*](#html---httpsvalidatorw3org)
-      * [*CSS*](#css---httpsjigsaww3orgcss-validator)
+      * [*HTML*](#html)
+      * [*CSS*](#css)
+      * [*JShint*](#jshint)
   * [**Lighthouse Scores**](#lighthouse-scores)
       * [*Desktop Testing*](#desktop-testing)
       * [*Mobile Testing*](#mobile-testing)
@@ -41,12 +42,12 @@ During the development process, I identified the following bugs through manual t
 2.  * ***Issue:*** 
         * The game graphic of the ‘Rock’ gesture was not displayed.
     * ***Solution:***
-        * Due to a simpler handling of the hand gesture images in the javascript logic, the images were renamed. the path was forgotten to be adjusted. It was easy to fix.
+        * Due to a simpler handling of the hand gesture images in the javascript logic, the images were renamed, but the path was not updated accordingly. It was easy to fix.
 
 3.  * ***Issue:*** 
         * It was no longer possible to click on the play button to start the game.
     * ***Solution:***
-        * After a change in the script.js code, the click events were broken. This was caused by a missing semicolon. Using JShint, the problem was quickly found and fixed. This has happened to me several times, especially after making changes to the SweetAlert2 pop-up code.
+        * After a change in the script.js code, the click events were broken. This was caused by a missing semicolon. Using JShint, the problem was quickly found and fixed. This occurred several times, especially after changes to the SweetAlert2 pop-up logic.
 
 4.  * ***Issue:*** 
         * The computer's hand gesture did not change.
@@ -56,7 +57,7 @@ During the development process, I identified the following bugs through manual t
 5.  * ***Issue:*** 
         * The game could be started over and over again before a round was finished.
     * ***Solution:***
-        * The playerHasCosen flag was missing from the playGame function. Setting it to true fixed the problem.
+        * The playerHasChosen flag was missing from the playGame function. Setting it to true fixed the problem.
 
 6.  * ***Issue:*** 
         * There was an error in the ruleset. The SweetAlert message showed "unknown" as the winning condition.
@@ -81,7 +82,8 @@ During the development process, I identified the following bugs through manual t
 ## **Post Development Testing**
 ### **Validators**
 
-#### ***HTML*** - https://validator.w3.org/
+#### ***HTML*** 
+- https://validator.w3.org/
 ***
 
 #### ***index.html***
@@ -90,7 +92,8 @@ During the development process, I identified the following bugs through manual t
 
 ![HTML Validation](docs/screenshots/validation-indexhtml.png)
 
-### ***CSS*** - https://jigsaw.w3.org/css-validator/
+### ***CSS*** 
+- https://jigsaw.w3.org/css-validator/
 ***
 
 #### ***style.css***
@@ -99,7 +102,8 @@ During the development process, I identified the following bugs through manual t
 
 * No error or warning was found during the validation of style.css
 
-### ***JShint*** - https://jshint.com/
+### ***JShint*** 
+- https://jshint.com/
 ***
 
 ![JavaScript Validation](docs/screenshots/js-validation-scriptjs.png)
@@ -116,8 +120,8 @@ During the development process, I identified the following bugs through manual t
  
 ### ***index.html***
 
-* The Lighthouse Score for mobile AND desktops regarding "Performance", "Accessibility", "Best Practices" and "SEO" is for all Pages 100 or near 100.
-* There is no need for action here, as a score above 90 is considered by Google to be good and safe for the user experience.
+* The Lighthouse scores for both mobile and desktops regarding "Performance", "Accessibility", "Best Practices" and "SEO" are 100 or close to 100 across all pages.
+* There is no need for action here, as scores above 90 is considered good and save by Google in terms of user experience.
 
 ***Mobile Testing:***
 ***

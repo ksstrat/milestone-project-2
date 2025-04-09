@@ -123,12 +123,12 @@ During the development process, I identified the following bugs through manual t
 * The Lighthouse scores for both mobile and desktops regarding "Performance", "Accessibility", "Best Practices" and "SEO" are 100 or close to 100 across all pages.
 * There is no need for action here, as scores above 90 is considered good and save by Google in terms of user experience.
 
-***Mobile Testing:***
+#### ***Mobile Testing:***
 ***
 
 ![Lighthouse Mobile](docs/screenshots/lighthouse-mobile.png)
 
-***Desktop Testing:***
+#### ***Desktop Testing:***
 ***
 
 ![Lighthouse Desktop](docs/screenshots/lighthouse-desktop.png)
